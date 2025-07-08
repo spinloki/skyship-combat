@@ -1,0 +1,311 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{fancyhdr}
+\usepackage{lmodern}
+\usepackage{sectsty}
+\usepackage{multicol}
+\usepackage{wrapfig}
+\usepackage[most]{tcolorbox}
+\usepackage{float}
+\tcbuselibrary{listings, skins, breakable, theorems}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\usepackage{xcolor}
+\input{commands.tex}
+
+\title{Skyship Combat System}
+\author{Iravol System Reference}
+\date{}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Iravol}
+\lhead{Skyship Combat Rules}
+\rfoot{\thepage}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Overview}
+
+Skyship combat in Iravol is divided into two distinct phases: the \textbf{Maneuver Phase} and the \textbf{Shooting Phase}. Combat emphasizes initiative, positioning, environmental exploitation, and resource management through dice pools and power usage. \ShipName
+
+\section{Ship Construction Rules}
+
+\subsection{Chassis Overview}
+
+Each ship begins with a \textbf{Chassis}, which provides its fundamental structure and limitations. A Chassis defines the following core statistics:
+
+\begin{itemize}
+    \item \textbf{Core Modification Slots:} Number of integral modifications the ship can support (usually 1).
+    \item \textbf{Hull Integrity:} Number of hits the ship can take before catastrophic failure.
+    \item \textbf{Armor (per Facing):} Baseline armor value for each of the four ship facings.
+    \item \textbf{Weapon Mounts (per Facing):} Mount points for Small, Medium, or Large weapons.
+	\item \textbf{Speed and Turn rating:} Two components of the ship's base maneuver pool.
+    \item \textbf{Power Rating:} The total amount of Power the ship generates and can spend per combat round.
+\end{itemize}
+
+\subsection{Ship Construction Process}
+
+\begin{enumerate}
+    \item \textbf{Choose a Chassis:} Select a base hull that fits your intended role (interceptor, cruiser, etc.).
+
+    \item \textbf{Install Core Modifications:} Choose up to the allowed number of \textbf{Core Mods}, which alter ship behavior (e.g., Armored Core, Overdrive Matrix).
+    
+    \item \textbf{Mount Weapons:}
+    \begin{itemize}
+        \item Weapons are mounted by \textbf{Facing} (Front, Rear, Port, Starboard).
+        \item Each mount is designated as \textbf{Small}, \textbf{Medium}, or \textbf{Large}.
+        \item Weapons have a size requirement and can only be mounted in appropriately sized slots.
+        \item Each weapon may also have \textbf{one Weapon Modification} (e.g., Unstable Ammunition, Stabilized Targeting).
+    \end{itemize}
+    
+    \item \textbf{Install Components:} Choose support systems (e.g., Engine Echo Projector, Flow-Tuned Rigging), limited only by the ship’s available \textbf{Power Rating}.
+    
+    \item \textbf{Validate Power Usage:} Ensure that the sum of all component and weapon \textbf{Power Costs} does not exceed the ship’s \textbf{Power Rating}.
+\end{enumerate}
+
+\subsection{Weapons and Range}
+
+Each weapon defines its own effectiveness at different ranges, expressed as a dice pool per range band:
+
+\begin{center}
+\begin{tabular}{lccccc}
+\toprule
+\textbf{Weapon} & \textbf{PB} & \textbf{Short} & \textbf{Medium} & \textbf{Long} & \textbf{Extreme} \\
+\midrule
+Light Cannon & 3d6 & 3d6 & 2d6 & 1d6 & — \\
+Sniper Lance & — & 1d6 & 2d8 & 3d8 & 4d6 \\
+Spray Gun & 4d4 & 3d4 & 2d4 & — & — \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Range bands are determined during the Shooting Phase. Some weapons may include \textbf{range-shifting abilities} (e.g., Stabilized Targeting) or traits like \textbf{Spray}, \textbf{Area Denial}, or \textbf{Echo} that interact with this table.
+
+\subsection{Power System Summary}
+
+Each component and weapon contributes a fixed Power Cost to the ship. A ship’s \textbf{Power Rating} is the total amount of power it can spend per round. Power is used for:
+
+\begin{itemize}
+    \item Flaring Drives for bonus maneuver dice.
+    \item Flaring Defense systems for evasion.
+    \item Activating components (e.g., Stormcaller, Signal Scrambler).
+    \item Triggering certain weapon mods or rerolls.
+\end{itemize}
+
+If a ship ends a round with \textbf{0 Power}, it suffers the \textbf{Drive Failure} critical effect.
+
+\subsection{Weapon Mount Sizes}
+
+\begin{itemize}
+    \item \textbf{Small Mount:} Can fit light weapons, often used for defense or area denial. Usually 1–2 dice per range.
+    \item \textbf{Medium Mount:} Standard offensive weapons. Balanced across range bands.
+    \item \textbf{Large Mount:} Heavy weapons, often have limited arcs but high damage. May require more Power.
+\end{itemize}
+
+\subsection{Wealth and Cost}
+
+The cost of weapons, components, and chassis upgrades is governed by a \textbf{Wealth System}, which is not covered in this document. Players and GMs should agree on available budget for outfitting based on campaign context.
+
+
+
+\section{The Combat Round}
+
+\subsection{Maneuver Actions}
+
+\begin{enumerate}
+    \item \textbf{Roll Maneuver Dice:} Each ship rolls its maneuver pool (speed + maneuverability + pilot skill).
+    
+    \item \textbf{Determine Initiative:} 
+    \begin{itemize}
+        \item Attacking side goes first.
+        \item If both sides are attacking, the side with the highest single dice roll is treated as the Attacker.
+    \end{itemize}
+
+    \item \textbf{Claim Environmental Dice Pools:}
+    \begin{itemize}
+        \item Attacking side chooses one environmental pool.
+        \item Defending side chooses from remaining options.
+    \end{itemize}
+
+    \item \textbf{Maneuver Actions:}
+    \begin{enumerate}
+        \item Attacker chooses a ship to act.
+        \item Attacking ship may roll 1 die from an Area Denial weapon.
+        \item Attacking ship bids two dice to maneuver against a target.
+        \item Defender may:
+        \begin{itemize}
+            \item Roll Area Denial weapon (1 die).
+            \item Receive escort (1 die per 2 sacrificed from an ally).
+            \item Match attacker’s bid using any number of maneuver dice.
+        \end{itemize}
+        \item If the defender matches the bid using fewer dice, it gains \textbf{Advantage}.
+        \item If the defender cannot match, it is \textbf{Outflanked}.
+        \item Any unused Escort or Area Denial dice expire.
+    \end{enumerate}
+
+    \item Repeat this process for the Defender.
+	\begin{enumerate}
+		\item Either side can decline to act on their turn
+		\item If both sides decline (or are unable) to act, all maneuver dice expire, and a new round begins.
+	\end{enumerate}
+\end{enumerate}
+
+\subsection{Shooting Actions}
+
+\begin{enumerate}
+    \item \textbf{Determine Facing and Range:}
+    \begin{itemize}
+        \item The ship with Advantage chooses its own facing.
+        \item The opposing ship chooses its own facing.
+		\item The ship with Advantage chooses the engagement range.
+    \end{itemize}
+
+    \item \textbf{Firing and Defending:}
+    \begin{itemize}
+        \item Each ship may fire once from each weapon on the chosen facing.
+        \item Shooter declares which weapons it will fire (forming the attack pool).
+        \item Defender decides whether to Evade and/or fire Defensive weapons to gain Evasion Dice.
+        \item Both sides roll their respective dice pools.
+    \end{itemize}
+
+    \item \textbf{Attack Resolution (Bid-Match):}
+    \begin{enumerate}
+        \item Shooter bids one weapon die.
+        \item Defender must match or exceed using evasion/defense dice, or take the hit.
+        \item Repeat until shooter is out of attack dice.
+    \end{enumerate}
+
+    \item \textbf{Resolve Hit Effects:}
+    \begin{itemize}
+        \item Subtract armor from each successful hit.
+        \item Apply leftover damage using the Damage Consequences Table.
+    \end{itemize}
+\end{enumerate}
+
+\begin{tcolorbox}[
+    enhanced,
+    sidebyside,
+	float,
+    sidebyside align=top seam,
+    width=\textwidth,
+    colback=gray!10,
+    colframe=black,
+    fonttitle=\bfseries,
+    title=Outflanked,
+    lefthand width=0.58\textwidth,
+    righthand width=0.38\textwidth,
+    sharp corners=southwest,
+    breakable
+]
+If a ship is Outflanked, the Defending ship can no longer bid Maneuver Dice against the Attacking ship for the rest of the round.
+Additionally, in the ensuing Shooting Action, the Attacker may choose \textbf{two} of the following:
+\begin{itemize}[noitemsep]
+    \item The Attacker may choose the Defender's facing.
+	\item The Defender cannot gain any Attack dice.
+    \item The Defender cannot gain any Evasion dice.
+\end{itemize}
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+    enhanced,
+    sidebyside,
+	float,
+    sidebyside align=top seam,
+    width=\textwidth,
+    colback=gray!10,
+    colframe=black,
+    fonttitle=\bfseries,
+    title=Ignoring Area Denial and Escort Dice,
+    lefthand width=0.58\textwidth,
+    righthand width=0.38\textwidth,
+    sharp corners=southwest,
+    breakable
+]
+During the Maneuver Phase, defenders may benefit from:
+
+\begin{itemize}[noitemsep]
+    \item \textbf{Area Denial Dice} — rolled from weapons
+    \item \textbf{Escort Dice} — provided by allied ships
+\end{itemize}
+
+The attacker may choose to \textbf{ignore} these dice after they are rolled:
+
+\begin{itemize}[noitemsep]
+    \item If an \textbf{Area Denial Die} is ignored, the defender loses its benefit, but the attacker \textbf{takes a hit} from that weapon.
+    \item If an \textbf{Escort Die} is ignored, the defender gains no bonus -- but the escort \textbf{Outflanks the attacker} once the Attacker's Shooting Action is done.
+\end{itemize}
+\end{tcolorbox}
+
+\newpage
+\section{Damage Consequences Table}
+
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Post-Armor Damage} & \textbf{Effect} \\ \midrule
+1--2 & Concussed: Reduce one maneuver die by damage dealt. \\
+3--4 & Armor Breach: -1 armor to that facing (can go below 0). \\
+5    & Fire! Facing ignites (see Fire rules). \\
+6    & Component Damage: Attacker disables one known system. \\
+7--8 & Drive Damaged: Target loses two maneuver dice permanently. \\
+9--10 & Motive Failure: Target loses all base maneuver dice, and cannot regain them for the rest of the combat. \\
+11+  & Ship Crippled: As above, and target can no longer attack. \\
+\bottomrule
+\end{tabular}
+
+\section{Power System Overview}
+
+Each ship has a limited Power Reserve, used to:
+\begin{itemize}
+    \item Flare Drives (gain bonus maneuver dice).
+    \item Flare Defense (gain bonus evasion dice).
+    \item Activate special components (e.g., Stormcaller).
+    \item Use Overdrive or other modifications.
+\end{itemize}
+If a ship ends a round with 0 Power, it suffers \textbf{Motive Failure}.
+
+\section{Weapon Qualities}
+
+\begin{itemize}
+    \item \textbf{Area Denial:} Weapon may roll one die during a maneuver to disrupt the enemy.
+    \item \textbf{Spray:} At short ranges, attacker may combine multiple small dice for greater armor penetration.
+    \item \textbf{Echo:} When a hit lands, resolve another hit at 2 less damage, repeat until zero.
+    \item \textit{(More to be added...)}
+\end{itemize}
+
+\section{Support Components} % Placeholder
+\begin{itemize}
+    \item \textbf{Engine Echo Projector:} Placeholder
+    \item \textbf{Flow-Tuned Rigging:} Placeholder
+    \item \textit{(More entries forthcoming)}
+\end{itemize}
+
+\section{Hull Types} % Placeholder
+\begin{itemize}
+    \item \textbf{Vulture-class Interceptor:} Placeholder
+    \item \textbf{Stormcaller Skiff:} Placeholder
+    \item \item \textbf{Battleship Frame III:} Placeholder
+\end{itemize}
+
+\section{Weapons} % Placeholder
+\begin{itemize}
+    \item \textbf{Aether Cannon:} Placeholder
+    \item \textbf{Mine Layer:} Placeholder
+    \item \textbf{Spray Cannon:} Placeholder
+\end{itemize}
+
+\end{document}
