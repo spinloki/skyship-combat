@@ -1,0 +1,84 @@
+\newcommand{\OutflankedSidebar}{
+\begin{tcolorbox}[
+    enhanced,
+    sidebyside,
+	float,
+    sidebyside align=top seam,
+    width=\textwidth,
+    colback=gray!10,
+    colframe=black,
+    fonttitle=\bfseries,
+    title=Outflanked,
+    lefthand width=0.58\textwidth,
+    righthand width=0.38\textwidth,
+    sharp corners=southwest,
+    breakable
+]
+If a ship is \outflanked, the \defender{} can no longer bid \dicetype{\maneuver} against the \attacker{} for the rest of the round.
+\hfill \break \break
+Additionally, in the ensuing Shooting Action, the \attacker{} may choose \textbf{two} of the following:
+\begin{itemize}[noitemsep]
+    \item The \attacker{} may choose the \defender{}'s facing.
+	\item The \defender{} cannot gain any \dicetype{\attack}.
+    \item The \defender{} cannot gain any \dicetype{\evasion}.
+\end{itemize}
+\end{tcolorbox}
+}
+
+\newcommand{\IgnoreDiceSidebar}{
+\begin{tcolorbox}[
+    enhanced,
+    sidebyside,
+	float,
+    sidebyside align=top seam,
+    width=\textwidth,
+    colback=gray!10,
+    colframe=black,
+    fonttitle=\bfseries,
+    title=Ignoring Area Denial and Escort Dice,
+    lefthand width=0.58\textwidth,
+    righthand width=0.38\textwidth,
+    sharp corners=southwest,
+    breakable
+]
+During the Maneuver Phase, \defender{}s may benefit from:
+
+\begin{itemize}[noitemsep]
+    \item \dicetype{\areadenial} — rolled from weapons
+    \item \dicetype{\escort} — provided by allied ships
+\end{itemize}
+
+The \attacker{} may choose to \textbf{ignore} these dice after they are rolled:
+
+\begin{itemize}[noitemsep]
+    \item If an \dietype{\areadenial} is ignored, the \defender{} loses its benefit, but the \attacker{} \textbf{takes a hit} from that weapon.
+    \item If an \dietype{\escort} is ignored, the \defender{} gains no bonus -- but the \attacker{} is \outflanked{} by the escort once the \attacker{}'s Shooting Action is done.
+\end{itemize}
+\end{tcolorbox}
+}
+
+\newcommand{\FleeSidebar}{
+\begin{tcolorbox}[
+    enhanced,
+    sidebyside,
+	float,
+    sidebyside align=top seam,
+    width=\textwidth,
+    colback=gray!10,
+    colframe=black,
+    fonttitle=\bfseries,
+    title=Fleeing Combat,
+    lefthand width=0.58\textwidth,
+    righthand width=0.38\textwidth,
+    sharp corners=southwest,
+    breakable
+]
+Instead of bidding two dice to maneuver against another ship, a ship may bid \textbf{all} of its remaining maneuver dice to attempt to flee the combat.
+\hfill \newline \newline
+The fleeing ship can gain \dicetype{\areadenial{} or \escort}, the same as if it were the Defender in a Maneuver Action.
+\hfill \newline \newline
+All opposing ships can pool \dicetype{\maneuver} together to match the fleeing ship's bid. They can use \dicetype{\areadenial{} and \environmental} as normal.
+\hfill \newline \newline
+The fleeing ship escapes if the opposing side cannot match its bid. Otherwise, all bid dice are lost.
+\end{tcolorbox}
+}

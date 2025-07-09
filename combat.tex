@@ -1,0 +1,116 @@
+\section{The Combat Round}
+
+\subsection{Maneuver Actions}
+
+\begin{enumerate}
+    \item \textbf{Roll \dicetype{\maneuver}:} Each ship rolls its base \dicetype{\maneuver} pool (speed + maneuverability + pilot skill).
+    
+    \item \textbf{Determine Initiative:} 
+    \begin{itemize}
+        \item The \attackingside{} goes first.
+        \item If both sides are attacking, the side with the ship that has the highest sum of \dicetype{\maneuver} is treated as the \attackingside.
+    \end{itemize}
+
+    \item \textbf{Claim \dicetype{\environmental} Pools:}
+    \begin{enumerate}
+        \item \attackingside{} chooses one \dicetype{\environmental} pool.
+        \item \defendingside{} chooses one from remaining options.
+    \end{enumerate}
+
+    \item \textbf{Maneuver Actions:}
+    \begin{enumerate}
+        \item \attackingside{} chooses a ship to act. This is the \textbf{\attacker}.
+        \item \attacker{} may roll 1 \dietype{\areadenial}, adding it to its \dicetype{\maneuver} pool.
+        \item \attacker{} bids two \dicetype{\maneuver} against a target. This is the \textbf{\defender}.
+        \item The \defender{} may:
+        \begin{itemize}
+            \item Roll 1 \dietype{\areadenial}, adding it to its \dicetype{\maneuver} pool.
+            \item Receive \dicetype{\escort}. Allied ships may sacrifice two of their own \dicetype{\maneuver} to grant one of them to the \defender{}.
+            \item Match \attacker{}’s bid using any number of \dicetype{\maneuver}.
+        \end{itemize}
+        \item Normally, the \attacker{} has \advantage. If the \defender{} matches with only one die, it can either take \advantage{} or designate an allied ship as the new \defender{}.
+        \item If the \defender{} cannot match the \attacker{}'s bid, it is \outflanked.
+        \item Any unused \dicetype{\escort{} or \areadenial} expire.
+		\item Resolve the Shooting Action between the \attacker{} and \defender{}.
+    \end{enumerate}
+
+    \item Repeat this process for the \defendingside{}.
+	\begin{itemize}
+		\item Either side can decline to act on their turn.
+		\item If neither side initiates a maneuver, all maneuver dice expire, and a new round begins.
+		\item If the \attackingside{} initiates no maneuvers in a round, the \defendingside{} may choose to become the \attackingside{} in the next round.
+		\item If neither side initiates maneuvers over the course of a round, either side may choose to end the combat.
+	\end{itemize}
+\end{enumerate}
+
+\FleeSidebar
+
+\subsection{Shooting Actions}
+
+\begin{enumerate}
+    \item \textbf{Determine Facing and Range:}
+    \begin{enumerate}
+        \item The ship with \advantage{} chooses its own facing.
+        \item The opposing ship chooses its own facing.
+		\item The ship with \advantage{} chooses the engagement range.
+    \end{enumerate}
+
+    \item \textbf{Firing and Defending:}
+    \begin{enumerate}
+        \item Each ship may fire once from each weapon on the chosen facing.
+        \item Shooter declares which weapons it will fire (forming the \dicetype{\attack} pool).
+        \item \defender{} decides whether to spend power to Evade, choosing to either gain \dicetype{\evasion} equal to its base \dicetype{\maneuver} pool or adjust the engagement range by one band.
+        \item \defender{} decides whether to fire Defensive weapons to gain \dicetype{\evasion}.
+        \item Both sides roll their respective dice pools.
+    \end{enumerate}
+
+    \item \textbf{Attack Resolution (Bid-Match):}
+    \begin{enumerate}
+        \item Shooter bids one weapon die.
+        \item \defender{} must match or exceed using \dicetype{\evasion}, or take the hit.
+        \item Repeat until shooter is out of \dicetype{\attack}.
+        \item Repeat Attack Resolution, swapping \attacker{} and \defender.
+    \end{enumerate}
+
+    \item \textbf{Resolve Hit Effects:}
+    \begin{enumerate}
+        \item Subtract armor from each successful hit.
+        \item Remaining damage up to armor is Hull Integrity damage. Anything beyond that is a Critical Hit.
+        \item Apply the Critical Hit using the Critical Table. \attacker can choose a lower result, using the same damage amount.
+		\item Suffer Hull Breached if Hull Integrity is reduced to 0.
+    \end{enumerate}
+\end{enumerate}
+
+\OutflankedSidebar
+\IgnoreDiceSidebar
+
+\newpage
+
+\subsection{Critical Table}
+
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Result} & \textbf{Effect} \\ \midrule
+0 & Hull Ruptured: Target loses (Damage) additional Hull Integrity. \\
+1 & Concussed: Reduce one maneuver die by (Damage). \\
+2 & Armor Breach: Attack strips (Damage) armor from that facing. \\
+3 & Component Damage: \attacker{} disables one known component. \\
+4 & Motive Disruption: Target loses two base \dicetype{\maneuver} and cannot regain them. \\
+5 & Hull Breached: Armor on all facings set to 0. All Attack Dice can be combined against it. \\
+6 & Motive Failure: Target loses all base \dicetype{\maneuver} and cannot regain them. \\
+7+  & Ship Crippled: As above, and target can no longer gain \dicetype{\attack{} or \maneuver}. \\
+\bottomrule
+\end{tabular}
+
+
+\subsection{Ship Power}
+
+Each ship has a limited Power Reserve, depleted in the following ways:
+\begin{itemize}
+    \item Passive combat stress. Usually at a rate of 1 Power every 2 rounds at Halflight altitude.
+    \item Flaring Drives to Evade during a Shooting Action.
+    \item Activating special components.
+\end{itemize}
+If a ship ends a round with 0 Power, it suffers \textbf{Motive Failure}.
+\hfill \newline
+At \textbf{any time}, a ship can choose to disable one of its own components to restore 1 Power.

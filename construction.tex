@@ -1,0 +1,126 @@
+\section{Ship Construction}
+
+\subsection{Ship Construction Process}
+
+\begin{enumerate}
+    \item \textbf{Choose a Chassis:} Select a base hull that fits your intended role (escort, fleet anchor, etc.).
+
+    \item \textbf{Install Core Modifications:} Choose up to the allowed number of \textbf{Core Modifications}, which alter ship behavior (e.g., Armored Core, Overdrive Matrix).
+    
+    \item \textbf{Mount Weapons:}
+    \begin{itemize}
+        \item Weapons are mounted by \textbf{Facing} (Front, Rear, Port, Starboard).
+        \item Each mount is designated as \textbf{Small}, \textbf{Medium}, or \textbf{Large}.
+        \item Weapons have a size requirement and can only be mounted in appropriately sized slots.
+        \item Each weapon may also have \textbf{one Weapon Modification} (e.g., Unstable Ammunition, Stabilized Targeting).
+    \end{itemize}
+    
+    \item \textbf{Install Components:} Choose support systems, limited only by the ship’s available \textbf{Power Rating}.
+    
+    \item \textbf{Calculate Power Capacity:} Subtract power cost of all components from the ship's Power Rating to get Power Capacity. This is how much power the ship starts with in combat.
+\end{enumerate}
+
+\subsection{Chassis Overview}
+
+Each ship begins with a \textbf{Chassis}. A Chassis defines the following core statistics:
+
+\begin{itemize}
+    \item \textbf{Core Modification Slots:} Number of integral modifications the ship can support (usually 1).
+    \item \textbf{Hull Integrity:} How much punishment the ship can take before suffering a Hull Breach.
+    \item \textbf{Armor (F/B/A):} Baseline armor values for the ship's Fore (F), Broadside (B), and Aft(A) facings. Armor is usually Minimal (1), Light (2), Medium (4), or Heavy (6).
+    \item \textbf{Mounts (F/B/A):} Mount points for Small (S), Medium (M), or Large (L) weapons. A Large Mount can also fit 1 Medium and 1 Small weapon.
+	\item \textbf{Speed and Turn rating:} Two components of the ship's base maneuver pool. The third, Piloting, is independent of the Chassis.
+    \item \textbf{Power Rating:} The total amount of Power the ship can hold.
+\end{itemize}
+
+\subsection{Chassis List}
+
+\begin{center}
+\rowcolors{2}{rowgray}{white}
+\begin{tabular}{|l|c|c|c|c|c|*{3}{c|}r|}
+\hline
+\textbf{Chassis} & \textbf{Hull Int.} & \textbf{Power} & \textbf{Speed} & \textbf{Manv.} & \textbf{Armor} 
+& \multicolumn{3}{c|}{\textbf{Weapon Mounts}} & \textbf{Price} \\
+\cline{7-9}
+ & & & & & & \textbf{F} & \textbf{B} & \textbf{A} & \\
+\hline
+Raider 		& 25 	& 12 	& 10 	& 12 	& 2/2/1 & -- 	& 1M 	& 1S 	& 10 \\
+Escort 		& 30 	& 15 	& 10 	& 10 	& 4/2/1 & 1S 	& 1M 	& 1S	& 15 \\
+Frigate 	& 40 	& 18 	& 8 	& 10 	& 4/4/2 & 1S 	& 1M/1S	& 1S	& 25 \\
+Interceptor & 40 	& 15 	& 12 	& 6 	& 6/4/1 & 1M/1S	& 1M 	& 1S	& 30 \\
+Cruiser 	& 55 	& 20 	& 8 	& 6 	& 6/4/4 & 1M 	& 1H/1S	& 1S	& 45 \\
+Battleship 	& 80 	& 25 	& 6 	& 4 	& 6/6/4 & 1H 	& 1H/1M	& 1M	& 75 \\
+\hline
+\end{tabular}
+\end{center}
+
+
+\subsection{Core Modifications}
+\begin{itemize}
+	\item \listentry{Armored Core}{Grants +2 armor to all facings to a max of 8. Speed and Power Rating are reduced by 2, and the ship cannot regain power by any means during combat.}
+	\item \listentry{Escort Protocol}{When this ship escorts an ally, the ally may reroll the granted \dietype{\maneuver}, but must accept the new value. If the ally does not reroll it, then the escorting ship can keep the die it did not grant, but halve the rolled value.}
+	\item \listentry{Exposed Conduits}{Reduces armor on all facings by 2. Ship's power rating is increased by 50\%.}
+	\item \listentry{Overdrive Matrix}{The ship's base \dicetype{\maneuver} pool gains 1 extra \dietype{\speed}. Doubles passive power loss. Doubles power cost of Evasion during Shooting Actions.}
+	\item \listentry{Oversized Weapon Mounts}{Increase all weapon mount sizes by 1 category, to a maximum of Large. All weapons cost 2 extra power.}
+\end{itemize}
+
+\subsection{Weapon Qualities}
+\begin{itemize}
+	\item \listentry{Arc}{Weapon can be fired from an adjacent firing arc. If it is, then treat the Target as if it were 1 range band further away.}
+	\item \listentry{Area Denial}{During a Maneuver action, a single die from any of this weapon's \dicetype{\attack} pool can be rolled as a temporary \dietype{\maneuver}}. If ignored, the Target is hit by this weapon's dice pool of the user's choice in the ensuing Shooting Action.
+	\item \listentry{Defensive (X)}{Target armor is doubled against this weapon's \dicetype{\attack}. This weapon's Point-Blank range \dicetype{\attack} can be rolled as \dicetype{\evasion} of type X. If the weapon has the Arc quality and is fired from an adjacent arc, use the weapon's Short range \dicetype{\attack} instead.}
+	\item \listentry{Disruptive}{Target loses 1 power if any of this weapon's \dicetype{\attack} dealt Hull Integrity damage during a Shooting Action.}
+	\item \listentry{Echo}{When one of this weapon's \dicetype{\attack} hits a target, it is duplicated and added back to the \dicetype{\attack} pool with a rolled value of 2 lower.}
+	\item \listentry{Fast Loading}{Weapon can be fired one extra time per round.}
+	\item \listentry{Linked (X)}{During a Shooting Action, X number of \dicetype{\attack} from this weapon can be bid as a single die.}
+	\item \listentry{Piercing (X)}{Target's armor is treated as X lower.}
+	\item \listentry{Seeking}{Target ships can only match this weapon's \dicetype{\attack} with exactly 2 \dicetype{\evasion}.}
+	\item \listentry{Spray}{At Point-Blank range, the weapon gains Linked (3). At Short range, the weapon gains Linked (2). \dicetype{\turn} cannot be used to match this weapon's \dicetype{\attack}.}
+	\item \listentry{Versatile}{Required quality for certain Weapon Modifications.}
+	\item \listentry{Volatile}{Weapon can reroll one of its \dicetype{\attack} per Shooting Action. Any Critical Hit against this facing adds 1 to its result.}
+\end{itemize}
+
+\subsection{Weapon List}
+
+\begin{center}
+\rowcolors{2}{rowgray}{white}
+\begin{tabular}{|l|c|c|c|c|c|c|c|l|r|}
+\hline
+\textbf{Weapon} & \textbf{Size} & \textbf{Power} & \textbf{PB} & \textbf{Short} & \textbf{Med} & \textbf{Long} & \textbf{Extr} & \textbf{Qualities} & \textbf{Price} \\
+\hline
+Cannon & S & 0 & 3d8 & 3d6 & 2d6 & 2d4 & 1d4 & Versatile & 0 \\
+Cannon Btry & M & 1 & 5d8 & 5d6 & 4d6 & 4d4 & 3d4 & Versatile & 1 \\
+Cannon G. Btry & L & 2 & 7d8 & 7d6 & 6d6 & 6d4 & 5d4 & Versatile & 2 \\
+Hvy Cannon & M & 2 & 1d12 & 2d12 & 3d10 & 4d8 & 3d6 & Pierce (2) & 2 \\
+Hvy Cannon Btry & L & 4 & 2d12 & 3d12 & 6d10 & 6d8 & 6d6 & Pierce (2) & 4 \\
+Firestorm & S & 1 & 8d4 & 8d4 & 8d4 & 2d4 & -- & Spray & 1 \\
+Firestorm Btry & M & 2 & 12d4 & 12d4 & 12d4 & 4d4 & 2d4 & Spray & 2 \\
+Mines & S & 0 & 3d12 & -- & -- & -- & -- & Area Denial & 1 \\
+Lightning Lance & M & 2 & -- & 3d6 & 3d8 & 3d10 & 3d8 & Arc & 3 \\
+Guardian & S & 2 & 2d12 & 2d10 & 2d8 & 2d6 & 2d4 & Arc, Def (Turn) & 2 \\
+Echo Cannon & S & 2 & 1d12 & 1d12 & 1d10 & 1d10 & 1d8 & Echo, Pierce (2) & 5 \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Weapon Modifications}
+Unless stated otherwise, each weapon is limited to one modification. Modifications normally have no additional Power or Wealth cost.
+\begin{itemize}
+	\item \listentry{Armored Mount}{Increases armor on facing by 1. Does not stack with other Armored Mounts on same facing. Incompatible with Armored Core.}
+	\item \listentry{Expanded Ammunition Racks}{Grants Fast Loading to attached weapon.}
+	\item \listentry{Overcharged Ammunition}{Requires Versatile quality. Ship can spend 1 power to grant Spray to attached weapon.}
+	\item \listentry{Proximity Burst Munitions}{Requires Versatile quality. Weapon gains Area Denial.}
+	\item \listentry{Spatial Distortion Array}{Ship can spend 1 power to grant Arcing to attached weapon.}
+	\item \listentry{Stabilized Targeting}{Ship can spend 1 power to adjust attached weapon's range by 1 band.}
+	\item \listentry{Unstable Ammunition Racks}{Grants Volatile to attached weapon.}
+\end{itemize}
+
+\subsection{Supplemental Modifications}
+\begin{itemize}
+	\item \modulelistentry{Emergency Booster}{At any time during a Maneuver Action, choose between 2d4, 2d8, and 2d12. Add these to the ship's \dicetype{\maneuver}. At any time during a Shooting Action, immediately gain \dicetype{\evasion}. Limit once per round. Whenever used, the rolled dice also count as \dicetype{\attack} that immediately hit the facing that the ship chooses for the Shooting Action.}{1}{1}
+	\item \modulelistentry{Flux Converter}{Whenever the ship loses power for any reason, roll 1d6. On 4+, gain 1 power, canceling the cost. On 1/2, lose an additional 1 power.}{4}{1}
+	\item \modulelistentry{Environmental Analyzer}{Once per round, any ship on the same side can reroll the result of an \dietype{\environmental}}{3}{2}
+	\item \modulelistentry{Wake Projector}{All \dicetype{\environmental} pools gain one additional die of the same type. The ship can spend 1 Power to restrict this effect to only 1 \dicetype{\environmental} pool.}{5}{2}
+	\item \modulelistentry{Stormcaller Drive}{The ship can spend 1 Power so that all \dicetype{\environmental} used in its Maneuver Action become \dicetype{\attack} in the ensuing Shooting Action.}{10}{3}
+	\item \modulelistentry{Targeting Scrambler}{Once per round, the ship can force its opponent in a Shooting Action to reroll an \dicetype{\attack}}{5}{2}
+\end{itemize}
