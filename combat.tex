@@ -1,9 +1,9 @@
-\section{The Combat Round}
+\section{Ship Combat}
 
 \subsection{Maneuver Actions}
 
 \begin{enumerate}
-    \item \textbf{Roll \dicetype{\maneuver}:} Each ship rolls its base \dicetype{\maneuver} pool (speed + maneuverability + pilot skill).
+    \item \textbf{Roll \dicetype{\maneuver}:} Each ship rolls its base \dicetype{\maneuver} pool (2d(Speed) + 2d(Turning) + 2d(Piloting)).
     
     \item \textbf{Determine Initiative:} 
     \begin{itemize}
@@ -91,14 +91,14 @@
 \begin{tabular}{@{}ll@{}}
 \toprule
 \textbf{Result} & \textbf{Effect} \\ \midrule
-0 & Hull Ruptured: Target loses (Damage) additional Hull Integrity. \\
 1 & Concussed: Reduce one maneuver die by (Damage). \\
 2 & Armor Breach: Attack strips (Damage) armor from that facing. \\
 3 & Component Damage: \attacker{} disables one known component. \\
-4 & Motive Disruption: Target loses two base \dietype{\maneuver} and cannot regain them. \\
-5 & Hull Breached: Armor on all facings set to 0. All Attack Dice can be combined against it. \\
-6 & Motive Failure: Target loses all base \dicetype{\maneuver} and cannot regain them. \\
-7+ & Ship Crippled: As above, and target can no longer gain \dicetype{\attack{} or \maneuver}. \\
+4 & Hull Ruptured: Target loses half its remaining Hull Integrity \\
+5 & Motive Disruption: Target loses two base \dietype{\maneuver} and cannot regain them. \\
+6 & Hull Breached: Armor on all facings set to 0. All Attack Dice can be combined against it. \\
+7 & Motive Failure: Target loses all base \dicetype{\maneuver} and cannot regain them. \\
+8+ & Ship Crippled: As above, and target can no longer gain \dicetype{\attack{} or \maneuver}. \\
 \bottomrule
 \end{tabular}
 

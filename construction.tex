@@ -39,8 +39,9 @@ Each ship begins with a \textbf{Chassis}. A Chassis defines the following core s
 \rowcolors{2}{rowgray}{white}
 \begin{tabular}{|l|c|c|c|c|c|*{3}{c|}r|}
 \hline
-\textbf{Chassis} & \textbf{Hull Int.} & \textbf{Power} & \textbf{Speed} & \textbf{Manv.} & \textbf{Armor} 
+\textbf{Chassis} & \textbf{Hull Int.} & \textbf{Power} & \textbf{Speed} & \textbf{Turn} & \textbf{Armor} 
 & \multicolumn{3}{c|}{\textbf{Weapon Mounts}} & \textbf{Price} \\
+\hline
 \cline{7-9}
  & & & & & & \textbf{F} & \textbf{B} & \textbf{A} & \\
 \hline
@@ -57,9 +58,10 @@ Battleship 	& 80 	& 25 	& 6 	& 4 	& 6/6/4 & 1H 	& 1H/1M	& 1M	& 75 \\
 
 \subsection{Core Modifications}
 \begin{itemize}
-	\item \listentry{Armored Core}{Grants +2 armor to all facings to a max of 8. Speed and Power Rating are reduced by 2, and the ship cannot regain power by any means during combat.}
-	\item \listentry{Escort Protocol}{When this ship escorts an ally, the ally may reroll the granted \dietype{\maneuver}, but must accept the new value. If the ally does not reroll it, then the escorting ship can keep the die it did not grant, but halve the rolled value.}
-	\item \listentry{Exposed Conduits}{Reduces armor on all facings by 2. Ship's power rating is increased by 50\%.}
+	\item \listentry{Armored Core}{Grants +2 armor to all facings to a max of 8. Reduces Speed and Power Rating by 2, and the ship cannot regain power by any means during combat.}
+	\item \listentry{Distributed Ordnance Array}{Replaces all of this ship's Medium mounts with two Small mounts.}
+	\item \listentry{Escort Protocol}{When this ship escorts an ally, the ally may reroll the granted \dietype{\maneuver}, but must accept the new value. If the ally does not reroll it, then the escorting ship can halve the size of the other sacrificed \dietype{\maneuver}, roll it, and add it back to its \dicetype{\maneuver} pool.}
+	\item \listentry{Exposed Conduits}{Reduces armor on all facings by 2. Increases ship's Power Rating by 50\%.}
 	\item \listentry{Overdrive Matrix}{The ship's base \dicetype{\maneuver} pool gains 1 extra \dietype{\speed}. Doubles passive power loss. Doubles power cost of Evasion during Shooting Actions.}
 	\item \listentry{Oversized Weapon Mounts}{Increase all weapon mount sizes by 1 category, to a maximum of Large. All weapons cost 2 extra power.}
 \end{itemize}
@@ -72,8 +74,8 @@ Battleship 	& 80 	& 25 	& 6 	& 4 	& 6/6/4 & 1H 	& 1H/1M	& 1M	& 75 \\
 	\item \listentry{Disruptive}{Target loses 1 power if any of this weapon's \dicetype{\attack} dealt Hull Integrity damage during a Shooting Action.}
 	\item \listentry{Echo}{When one of this weapon's \dicetype{\attack} hits a target, it is duplicated and added back to the \dicetype{\attack} pool with a rolled value of 2 lower.}
 	\item \listentry{Fast Loading}{Weapon can be fired one extra time per round.}
-	\item \listentry{Linked (X)}{During a Shooting Action, X number of \dicetype{\attack} from this weapon can be bid as a single die.}
-	\item \listentry{Piercing (X)}{Target's Armor subtracts X less from the damage total of an \dietype{\attack}. This does not reduce damage dealt to Hull Integrity.}
+	\item \listentry{Linked (N)}{During a Shooting Action, N number of \dicetype{\attack} from this weapon can be bid as a single die.}
+	\item \listentry{Piercing (N)}{Target's Armor subtracts N less from the damage total of an \dietype{\attack}. This does not reduce damage dealt to Hull Integrity.}
 	\item \listentry{Seeking}{Target ships can only match this weapon's \dicetype{\attack} with exactly 2 \dicetype{\evasion}.}
 	\item \listentry{Spray}{At Point-Blank range, the weapon gains Linked (3). At Short range, the weapon gains Linked (2). \dicetype{\turn} cannot be used to match this weapon's \dicetype{\attack}.}
 	\item \listentry{Versatile}{Required quality for certain Weapon Modifications.}
@@ -108,7 +110,8 @@ Unless stated otherwise, each weapon is limited to one modification. Modificatio
 \begin{itemize}
 	\item \listentry{Armored Mount}{Increases armor on facing by 1. Does not stack with other Armored Mounts on same facing. Incompatible with Armored Core.}
 	\item \listentry{Expanded Ammunition Racks}{Grants Fast Loading to attached weapon.}
-	\item \listentry{Overcharged Ammunition}{Requires Versatile quality. Ship can spend 1 power to grant Spray to attached weapon.}
+	\item \listentry{Flux Dampener}{Reduces the Power requirement to mount the attached weapon by 1, to a minimum of 0.}
+	\item \listentry{Overcharged Ammunition}{Requires Versatile quality. Ship can spend 1 power to grant Spray to attached weapon. Doing so reduces the size of the attached weapon's \dicetype{\attack} by one step for that Shooting Action.}
 	\item \listentry{Proximity Burst Munitions}{Requires Versatile quality. Weapon gains Area Denial.}
 	\item \listentry{Spatial Distortion Array}{Ship can spend 1 power to grant Arcing to attached weapon.}
 	\item \listentry{Stabilized Targeting}{Ship can spend 1 power to adjust attached weapon's range by 1 band.}
